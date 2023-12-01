@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "397634040372",
+    "project_id": "gestudent-94879",
+    "storage_bucket": "gestudent-94879.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397634040372:android:3b143b67733728f063d061",
+        "android_client_info": {
+          "package_name": "com.example.gestudent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqRJU0-vQ4lofl77E2ugaA-U_vO0DGAsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
