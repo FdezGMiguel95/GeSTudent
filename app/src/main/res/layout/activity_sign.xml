@@ -5,26 +5,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignActivity">
+    tools:context=".SignActivity"
+    android:background="#E8F4F2">
     <TextView
-        android:id="@+id/tvReg"
-        android:layout_width="match_parent"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="REGISTRO"
-        android:textSize="19dp"
-        android:textAlignment="center"
-        android:paddingVertical="12dp"
-        />
+        android:layout_centerHorizontal="true"
+        android:text="GesTudent"
+        android:fontFamily="@font/chewy"
+        android:textSize="68dp"
+        android:layout_marginTop="53dp"/>
 
     <EditText
-        android:layout_below="@id/tvReg"
+        android:layout_below="@id/tvTitle"
         android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="48dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Nombre"/>
+        android:hint="Nombre"
+        android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etName"
         android:id="@+id/etMail"
@@ -33,5 +35,40 @@
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Correo"/>
+        android:hint="Correo"
+        android:fontFamily="@font/chewy"/>
+    <EditText
+        android:layout_below="@id/etMail"
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Contrasena"
+        android:inputType="textPassword"
+        android:fontFamily="@font/chewy"/>
+    <EditText
+        android:layout_below="@id/etPassword"
+        android:id="@+id/etSecondPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Confirma contrasena"
+        android:inputType="textPassword"
+        android:fontFamily="@font/chewy"/>
+    <Button
+        android:layout_below="@id/etSecondPassword"
+        android:id="@+id/btnSign"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:paddingHorizontal="10dp"
+        android:text="Registrarse"
+        android:background="#9ADFE4"
+        android:textColor="@color/white"
+        />
 </RelativeLayout>
