@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInActivity"
-    android:background="#E8F4F2">
+    android:background="@drawable/fondo"
+    >
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -15,7 +16,8 @@
         android:text="GesTudent"
         android:fontFamily="@font/chewy"
         android:textSize="68dp"
-        android:layout_marginTop="53dp"/>
+        android:layout_marginTop="53dp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:layout_below="@id/tvTitle"
