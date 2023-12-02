@@ -67,7 +67,8 @@
         android:layout_marginTop="75dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOG IN" />
+        android:text="LOG IN"
+        />
 
     <TextView
         android:id="@+id/textView_RegisterNewUser"

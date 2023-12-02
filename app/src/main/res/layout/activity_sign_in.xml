@@ -26,6 +26,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Nombre"
+        android:inputType="text"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etName"
@@ -36,6 +37,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Correo"
+        android:inputType="textEmailAddress"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etMail"
@@ -68,7 +70,5 @@
         android:layout_marginTop="70dp"
         android:paddingHorizontal="10dp"
         android:text="Registrarse"
-        android:background="#9ADFE4"
-        android:textColor="@color/white"
         />
 </RelativeLayout>
