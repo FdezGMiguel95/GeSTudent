@@ -29,6 +29,7 @@
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etName"
@@ -40,6 +41,7 @@
         android:ems="10"
         android:hint="Correo"
         android:inputType="textEmailAddress"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etMail"
@@ -51,6 +53,7 @@
         android:ems="10"
         android:hint="Contrasena"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etPassword"
@@ -62,6 +65,7 @@
         android:ems="10"
         android:hint="Confirma contrasena"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <Button
         android:layout_below="@id/etSecondPassword"
