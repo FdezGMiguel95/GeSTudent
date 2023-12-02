@@ -57,7 +57,7 @@ public class SignInActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()){
-                                            Intent goHome = new Intent(SignInActivity.this, LoginActivity.class);
+                                            Intent goHome = new Intent(SignInActivity.this, HomeActivity.class);
                                             startActivity(goHome);
                                         }else{
                                             Toast.makeText(SignInActivity.this, "ERROR", Toast.LENGTH_SHORT).show();

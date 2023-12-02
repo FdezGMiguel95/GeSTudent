@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                 email = editText_EmailLogIn.getText().toString().trim();
                 password = editText_PasswordLogIn.getText().toString().trim();
 
+
                 /*
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

@@ -2,9 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="toolbar">#C3D8C4</color>
+    <color name="verde">#95FF99</color>
+    <color name="header">#D8CFC3</color>
     <color name="bgColor">#E8F4F2</color>
     <color name="btnColor">#9ADFE4</color>
     <color name="profile">#D8CFC3</color>
-    <color name="toolbar">#C3D8C4</color>
+    <color name="colorprueba">#F39735</color>
 
 </resources>
