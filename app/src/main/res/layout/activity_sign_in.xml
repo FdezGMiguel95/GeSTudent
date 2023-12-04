@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInActivity"
-    android:background="#E8F4F2">
+    android:background="@drawable/fondo"
+    >
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -15,7 +16,8 @@
         android:text="GesTudent"
         android:fontFamily="@font/chewy"
         android:textSize="68dp"
-        android:layout_marginTop="53dp"/>
+        android:layout_marginTop="53dp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:layout_below="@id/tvTitle"
@@ -26,6 +28,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Nombre"
+        android:inputType="text"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etName"
@@ -36,6 +40,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etMail"
@@ -47,6 +53,7 @@
         android:ems="10"
         android:hint="Contrasena"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <EditText
         android:layout_below="@id/etPassword"
@@ -58,6 +65,7 @@
         android:ems="10"
         android:hint="Confirma contrasena"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         android:fontFamily="@font/chewy"/>
     <Button
         android:layout_below="@id/etSecondPassword"
@@ -68,7 +76,5 @@
         android:layout_marginTop="70dp"
         android:paddingHorizontal="10dp"
         android:text="Registrarse"
-        android:background="#9ADFE4"
-        android:textColor="@color/white"
         />
 </RelativeLayout>

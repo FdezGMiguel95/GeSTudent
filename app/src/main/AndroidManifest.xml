@@ -13,9 +13,6 @@
         android:theme="@style/Theme.GeSTudent"
         tools:targetApi="31">
         <activity
-            android:name=".RememberPassword"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -29,7 +26,9 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>
