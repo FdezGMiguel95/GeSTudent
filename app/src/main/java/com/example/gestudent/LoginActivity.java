@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         textView_RememberLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(LoginActivity.this, RememberLogInActivity.class);
+                //Intent i = new Intent(LoginActivity.this, RememberPasswordActivity.class);
                 //startActivity(i);
             }
         });
