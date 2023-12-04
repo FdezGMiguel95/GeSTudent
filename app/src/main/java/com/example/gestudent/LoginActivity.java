@@ -53,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         textView_RememberLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(LoginActivity.this, RememberPassword.class);
-                //startActivity(i);
+                Intent i = new Intent(LoginActivity.this, RememberPassword.class);
+                startActivity(i);
             }
         });
 
@@ -68,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            //Intent i = new Intent(LoginActivity.this, ActivityPerfil.class);
                             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(i);
                             finish();
