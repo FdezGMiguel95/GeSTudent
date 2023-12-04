@@ -12,9 +12,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoginActivity extends AppCompatActivity {
 
-    //private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     private EditText editText_EmailLogIn, editText_PasswordLogIn;
     private TextView textView_RememberLogIn, textView_RegisterNewUser;
@@ -34,22 +40,20 @@ public class LoginActivity extends AppCompatActivity {
         textView_RegisterNewUser = (TextView) findViewById(R.id.textView_RegisterNewUser);
         button_LogIn = (Button) findViewById(R.id.button_LogIn);
 
-        /*
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            usuario = sharedPreferences_Login.getString("usuario", "uID");
-            etCorreo.setText(usuario);
+            user = sharedPreferences_Login.getString("usuario", "uID");
+            editText_EmailLogIn.setText(user);
         } else {
             Toast.makeText(LoginActivity.this, "Bienvenido usuario, no estás conectado", Toast.LENGTH_SHORT).show();
-            //FirebaseAuth.getInstance().signOut();
+            FirebaseAuth.getInstance().signOut();
         }
-        */
 
         textView_RememberLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(LoginActivity.this, RememberLogInActivity.class);
+                //Intent i = new Intent(LoginActivity.this, RememberPassword.class);
                 //startActivity(i);
             }
         });
@@ -60,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                 email = editText_EmailLogIn.getText().toString().trim();
                 password = editText_PasswordLogIn.getText().toString().trim();
 
-                /*
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -74,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-                */
             }
         });
 
