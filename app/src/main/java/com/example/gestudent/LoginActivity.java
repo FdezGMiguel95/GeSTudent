@@ -57,19 +57,23 @@ public class LoginActivity extends AppCompatActivity {
         /* Verificar si el usuario ya está autenticado */
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if(currentUser != null) {
             // El usuario está autenticado, realizar acciones necesarias
             Toast.makeText(this, "Usuario autenticado", Toast.LENGTH_SHORT).show();
 
             //SharedPreferences preferences = getSharedPreferences("sharedPreferences_Login", Context.MODE_PRIVATE);
             //user = preferences.getString("user",null);
             //editText_EmailLogIn.setText(user);
+
+            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(i);
+            //finish();
+
         } else {
             // El usuario no está autenticado
-            Toast.makeText(LoginActivity.this, "Bienvenido usuario, no estás autenticado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "No estás identificado", Toast.LENGTH_SHORT).show();
             FirebaseAuth.getInstance().signOut();
         }
-
 
         /* Configurar opciones de inicio de sesión de Google */
         /* Mirar también https://firebase.google.com/docs/auth/android/google-signin?hl=es#java */
@@ -81,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
                         .requestEmail()
                         .build();
                 mGoogleSignInClient = GoogleSignIn.getClient(LoginActivity.this, gso);
-                //mGoogleSignInClient = Auth.GoogleSignInApi.clientFor(mGoogleSignInClient);// Error en clientFor
                 Toast.makeText(LoginActivity.this, "Usuario autenticado con GOOGLE" + mGoogleSignInClient, Toast.LENGTH_SHORT).show();
 
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -131,8 +134,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -148,7 +149,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Google Sign In falló, actualiza la interfaz de usuario con información de error
                 Log.w("GoogleSignIn", "Google sign in failed", e);
             }
-        }else{
+        } else {
             Toast.makeText(this, "AAAAAAAAAAAAAAAA", Toast.LENGTH_SHORT).show();
         }
     }
@@ -188,14 +189,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void signInWithEmail(View view) {
         // Implementa la autenticación con correo y contraseña aquí
-    }
-
-    private void guardarSharedPreferencias(String uID){
-        SharedPreferences sharedPreferences_Login = getSharedPreferences("user", 0);
-        SharedPreferences.Editor user = sharedPreferences_Login.edit();
-        user.putString("user", uID);
-        //login.putFloat("contrasena", contrasena);
-        user.commit();
     }
 
 }
