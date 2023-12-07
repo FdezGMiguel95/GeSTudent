@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_TituloLogIn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="text" />
@@ -64,7 +64,7 @@
         android:textColor="@color/btnColor"/>
 
     <Button
-        android:id="@+id/button_LogIn"
+        android:id="@+id/button_LogInEmail"
         android:layout_below="@id/editText_PasswordLogIn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
@@ -76,11 +76,20 @@
         android:id="@+id/textView_RegisterNewUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_LogIn"
+        android:layout_below="@id/button_LogInEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Haz click aquí si no tienes cuenta"
         android:textSize="12dp"
         android:textColor="@color/btnColor"/>
+
+    <Button
+        android:id="@+id/button_LogInGoogle"
+        android:layout_below="@id/textView_RegisterNewUser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOG IN with GOOGLE" />
 
 </RelativeLayout>

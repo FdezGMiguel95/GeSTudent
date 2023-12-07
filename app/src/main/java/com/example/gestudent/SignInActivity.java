@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
         etName = (EditText) findViewById(R.id.etName);
         etMail = (EditText) findViewById(R.id.etMail);
         etPassword = (EditText) findViewById(R.id.etPassword);
@@ -45,31 +47,32 @@ public class SignInActivity extends AppCompatActivity {
                 mail = etMail.getText().toString().trim();
                 password = etPassword.getText().toString().trim();
                 confPword = etConfPassword.getText().toString().trim();
-                if (password.equals(confPword)){
-                    User u = new User(name, mail);
+                if (password.equals(confPword)) {
                     mAuth.createUserWithEmailAndPassword(mail, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
                                 fbUser = mAuth.getCurrentUser();
-                                String uuid = fbUser.getUid();
-                                mRef.child(uuid).setValue(u).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                String uID = fbUser.getUid();
+                                //GuardarPreferencias(uID);
+                                User u = new User(name, mail);
+                                mRef.child(uID).setValue(u).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()){
-                                            Intent goHome = new Intent(SignInActivity.this, HomeActivity.class);
-                                            startActivity(goHome);
-                                        }else{
+                                        if (task.isSuccessful()) {
+                                            Intent i = new Intent(SignInActivity.this, LoginActivity.class);
+                                            startActivity(i);
+                                        } else {
                                             Toast.makeText(SignInActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
-                            }else{
+                            } else {
                                 Toast.makeText(SignInActivity.this, "Credenciales incorrectos", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-                }else{
+                } else {
                     etName.setText(name);
                     etMail.setText(mail);
                     etPassword.setText("");
@@ -78,5 +81,13 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void GuardarPreferencias(String uID){
+        SharedPreferences sharedPreferences_Login = getSharedPreferences("user", 0);
+        SharedPreferences.Editor user = sharedPreferences_Login.edit();
+        user.putString("user", uID);
+        //login.putFloat("contrasena", contrasena);
+        user.commit();
     }
 }
