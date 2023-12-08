@@ -6,6 +6,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
-
-
+    <ImageView
+        android:id="@+id/ivProf"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/baseline_add_a_photo_24"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        />
+    <TextView
+        android:id="@+id/tvNameP"
+        android:layout_below="@id/ivProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="NOMBRE"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tvCorreoP"
+        android:layout_below="@id/tvNameP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="CORREO"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tvTemarioP"
+        android:layout_below="@id/tvCorreoP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="TEMARIO"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tvProgresoP"
+        android:layout_below="@id/tvTemarioP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="PROGRESO"
+        android:textSize="20dp"
+        />
 </RelativeLayout>

@@ -11,15 +11,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawerLayout;
+    private DrawerLayout drawerLayout;
+    private ImageView profPic;
 
 
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -27,7 +31,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
 
         Toolbar toolbar= findViewById(R.id.toolbar);
-
+        //profPic = (ImageView) findViewById(R.id.ivProfMenu);
 
         getSupportActionBar(toolbar);
 
@@ -44,6 +48,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.mate);
         }
 
+        View headerView = navigationView.getHeaderView(0);
+        profPic = (ImageView) headerView.findViewById(R.id.ivProfMenu);
+        profPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goProfile = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(goProfile);
+            }
+        });
     }
 
     private void getSupportActionBar ( Toolbar toolbar ) {
