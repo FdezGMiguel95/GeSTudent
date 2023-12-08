@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             //user = preferences.getString("user",null);
             //editText_EmailLogIn.setText(user);
 
-            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+            Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
             startActivity(i);
             //finish();
 
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                                Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
                                 startActivity(i);
                                 finish();
                             } else {
@@ -163,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
                     FirebaseUser user = mAuth.getCurrentUser();
                     updateUI(user);
-                    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                    Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
                     startActivity(i);
                 } else {
                     // If sign in fails, display a message to the user.
