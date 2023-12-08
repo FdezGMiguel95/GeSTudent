@@ -1,9 +1,17 @@
 package com.example.gestudent.POJO;
 
-public class TareaApunte {
+import java.io.Serializable;
+
+public class TareaApunte implements Serializable {
 
     private String titulo;
     private String descripcion;
+
+
+    public TareaApunte () {
+    }
+
+
 
 
     public TareaApunte ( String titulo , String descripcion ) {

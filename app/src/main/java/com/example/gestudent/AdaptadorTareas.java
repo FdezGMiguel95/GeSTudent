@@ -1,5 +1,6 @@
 package com.example.gestudent;
 
+import android.animation.ObjectAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gestudent.POJO.ExamenApunte;
 import com.example.gestudent.POJO.TareaApunte;
 
 import java.util.ArrayList;
@@ -16,6 +18,14 @@ public class AdaptadorTareas extends RecyclerView.Adapter<AdaptadorTareas.ViewHo
 
 
     private ArrayList<TareaApunte>listItem;
+
+    private ArrayList<ExamenApunte>listExam;
+
+
+    public AdaptadorTareas ( ArrayList<TareaApunte> listItem , ArrayList<ExamenApunte> listExam ) {
+        this.listItem = listItem;
+        this.listExam = listExam;
+    }
 
     public AdaptadorTareas ( ArrayList<TareaApunte> listItem ) {
         this.listItem = listItem;
@@ -41,6 +51,19 @@ public class AdaptadorTareas extends RecyclerView.Adapter<AdaptadorTareas.ViewHo
         holder.tvDescripcion.setText(listItem.get(position).getDescripcion());
 
     }
+
+    public interface OnItemClickListener {
+        void onEliminarClick(int position);
+
+    }
+    private OnItemClickListener listener;
+
+    public void setOnEliminarClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
+
 
     @Override
     public int getItemCount () {
