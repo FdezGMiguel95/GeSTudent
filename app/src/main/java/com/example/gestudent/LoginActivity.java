@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             //user = preferences.getString("user",null);
             //editText_EmailLogIn.setText(user);
 
-            Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
+            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(i);
             //finish();
 
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
+                                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(i);
                                 finish();
                             } else {

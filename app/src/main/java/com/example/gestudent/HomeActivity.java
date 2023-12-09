@@ -43,13 +43,30 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+
+            /*ESTE IF ES HABITUAL CUADNOS E TRABAJANDO CION FRAGMENT ASEGUERA QUE SOLO EL HOMEFRA
+            FRAGMENT SE PONGA EN EL CONTAINER*/
         if(savedInstanceState==null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.mate);
         }
 
-        View headerView = navigationView.getHeaderView(0);
-        profPic = (ImageView) headerView.findViewById(R.id.ivProfMenu);
+
+        /*ESTE CODIGO DE ABAJO ES CUANDO DOY CLICK EN LA IAMGEN DE HEADER Y QUIERA QUE AHGA ACCIONES 
+        COMO QUE NOS DIRIJA A OTRA ACTIVITY */
+        View headerView = navigationView.getHeaderView(0); /*Crearemos una variable de tipo View
+                                                           llamada headerview donde meteremos
+                                                           el navigationView creado arriba y 
+                                                           llamamos el getHeaderView ques es 
+                                                           para obtener la referencia de la
+                                                            header y le pasamos como indice el 0 ya
+                                                            que la imagen es la primera vista */
+
+        profPic = (ImageView) headerView.findViewById(R.id.ivProfMenu); /*porfPic es el id de la imagen
+                                                                        del header donde quedremos ald ar
+                                                                          click nos haga una accion */
+        
+        /*Es la accion que se hara como por ejemplo un intent a otro activity*/
         profPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

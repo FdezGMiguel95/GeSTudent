@@ -32,11 +32,14 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gestudent.POJO.ExamenApunte;
 import com.example.gestudent.POJO.TareaApunte;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -67,6 +70,11 @@ public class HomeFragment extends Fragment {
     private FloatingActionButton btnAgregarApunte,btnAgregarExamen,btnEliminarLista;
 
 
+    /*VARIABLE QUE SE CREA COMO FALG PARA HACER LO DE MOSTRAR 
+    Y NO EN EL CARD VIEW*/
+    private boolean mostrarEliminar = false;
+
+
 
     @Override
     public View onCreateView ( LayoutInflater inflater , ViewGroup container ,
@@ -83,6 +91,9 @@ public class HomeFragment extends Fragment {
     public void onViewCreated ( @NonNull View view , @Nullable Bundle savedInstanceState ) {
         super.onViewCreated(view , savedInstanceState);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        String idUser = mAuth.getCurrentUser().getUid();
 
         adapterT = new AdaptadorTareas(listaApunte);
         recy = view.findViewById(R.id.recy);
@@ -91,13 +102,6 @@ public class HomeFragment extends Fragment {
         recy.setAdapter(adapterT);
 
         spinnerHome = view.findViewById(R.id.spinnerHome);
-
-
-        TareaApunte t1 = new TareaApunte("TAREA" , "LALALALALLALALLAL");
-        listaApunte.add(t1);
-
-
-
 
 
         spinerFiltros.add("Solo apuntes");
@@ -112,6 +116,22 @@ public class HomeFragment extends Fragment {
         btnAgregarExamen = view.findViewById(R.id.btnAgregarExamen);
         btnEliminarLista = view.findViewById(R.id.btnEliminarLista);
 
+        /*El de abajo lo que se llama lo hecho en el adaptador 
+        */
+        adapterT.setItemClickListener(new AdaptadorTareas.OnItemClickListener() {
+            @Override
+            public void onItemClick ( int position ) {
+                /*OBTENGO EL ID DEL APUNTE */
+                String idApunte = listaApunte.get(position).getId();
+                /*LLAMO ALA METODO QUE AHCER ELIMIANR EL APUTNE DE FIREBASE*/
+                EliminarApunte(idApunte,idUser);
+                /*ELIMINO DE LA LISTA*/
+                listaApunte.remove(position);
+
+                adapterT.notifyDataSetChanged();
+
+            }
+        });
 
         btnAgregarApunte.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,8 +143,17 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        /*ACCION DE HACER APRECER EL INCONO PUESTO E UN CARD VIEW CUANDO SE DA CLICK
+        AL BOTON DE ABAJO*/
+        btnEliminarLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick ( View v ) {
 
-
+                mostrarEliminar = !mostrarEliminar;/*ACA AL MSOTRARELIMINAR LO PONEMO SU INVERSO*/
+                adapterT.setMostrarIcono(mostrarEliminar);/*ACA LLAMOS CON NUESTRO ADAPTER EL SETMOSTRARICONO*/
+                grupoBotones.collapse();/*PARA QUE LOS BOTONES DESAPARESCAN AL DAR EN UNA OPCION */
+            }
+        });
 
 
     }
@@ -141,6 +170,34 @@ public class HomeFragment extends Fragment {
 
 
 
+    /*EL METODO QUE SE CREA APRA ELIMINARLO EN REAL DATA BASE LA TAREA SELECCIONADA AL DAR CLIK
+    EN LA IMAGEN DE BASURA */
+    public void EliminarApunte(String idApunte,String idUserE){
+
+
+
+        /*BAJAMOS EN CASCA HASAT DONDE SE ENCUENTRE EKL APUNTE */
+        DatabaseReference mRefD = FirebaseDatabase.getInstance().getReference().child("Users").child(idUserE).child("Notes").child(idApunte);
+
+        mRefD.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete ( @NonNull Task<Void> task ) {
+
+                if(task.isSuccessful()){
+
+                    Log.e("","Apunte borrado de firebase");
+
+                }else{
+                    Log.e("","Apunte borrado de firebase fallida");
+
+
+                }
+
+
+            }
+        });
+
+    }
 
     public void bajarLista(){
 

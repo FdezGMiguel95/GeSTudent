@@ -66,11 +66,11 @@ public class NuevoApunteActivity extends AppCompatActivity {
                String titulo = etTituloNuevoApunte.getText().toString().trim();
                String descripcion = etDescripApunte.getText().toString().trim();
 
-               TareaApunte tareaNueva = new TareaApunte(titulo,descripcion);
 
 
                String uid = mAuth.getCurrentUser().getUid();
                String idApunte = mRef.push().getKey();
+               TareaApunte tareaNueva = new TareaApunte(idApunte,titulo,descripcion);
 
                mRef= FirebaseDatabase.getInstance().getReference().child("Users");
                mRef.child(uid).child("Notes").child(idApunte).setValue(tareaNueva).addOnCompleteListener(new OnCompleteListener<Void>() {

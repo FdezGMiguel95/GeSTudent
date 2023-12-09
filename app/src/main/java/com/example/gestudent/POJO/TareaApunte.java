@@ -4,15 +4,30 @@ import java.io.Serializable;
 
 public class TareaApunte implements Serializable {
 
+
+    private String id;
+
     private String titulo;
     private String descripcion;
 
+
+    public String getId () {
+        return id;
+    }
+
+    public void setId ( String id ) {
+        this.id = id;
+    }
 
     public TareaApunte () {
     }
 
 
-
+    public TareaApunte ( String id , String titulo , String descripcion ) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+    }
 
     public TareaApunte ( String titulo , String descripcion ) {
         this.titulo = titulo;

@@ -18,21 +18,29 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="25dp">
+                android:layout_marginTop="25dp"
+              >
 
                 <TextView
                     android:id="@+id/tvTitulo"
-                    android:layout_width="wrap_content"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="TITULO"
                     android:fontFamily="serif"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     />
+                <ImageView
+                    android:id="@+id/imagenBasura"
+                    android:layout_width="22dp"
+                    android:layout_height="31dp"
+                    android:src="@drawable/iconoeliminartacho"
+                    android:layout_marginLeft="60dp"/>
+
 
 
             </LinearLayout>

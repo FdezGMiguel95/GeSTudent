@@ -60,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Intent i = new Intent(SignInActivity.this, LoginActivity.class);
+                                            Intent i = new Intent(SignInActivity.this, HomeActivity.class);
                                             startActivity(i);
                                         } else {
                                             Toast.makeText(SignInActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
