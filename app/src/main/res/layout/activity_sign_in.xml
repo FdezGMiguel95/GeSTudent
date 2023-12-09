@@ -6,75 +6,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInActivity"
-    android:background="@drawable/fondo"
-    >
+    android:background="@drawable/fondo">
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
         android:layout_centerHorizontal="true"
-        android:text="GesTudent"
         android:fontFamily="@font/chewy"
         android:textSize="68dp"
-        android:layout_marginTop="53dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:text="GesTudent" />
 
     <EditText
-        android:layout_below="@id/tvTitle"
         android:id="@+id/etName"
+        android:layout_below="@id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Nombre"
         android:inputType="text"
+        android:hint="Nombre"
         android:textColor="@color/white"
-        android:fontFamily="@font/chewy"/>
+        app:backgroundTint="@color/grisOscuro" />
+
     <EditText
-        android:layout_below="@id/etName"
         android:id="@+id/etMail"
+        android:layout_below="@id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Correo"
         android:inputType="textEmailAddress"
+        android:hint="Correo"
         android:textColor="@color/white"
-        android:fontFamily="@font/chewy"/>
+        app:backgroundTint="@color/grisOscuro" />
+
     <EditText
-        android:layout_below="@id/etMail"
         android:id="@+id/etPassword"
+        android:layout_below="@id/etMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:inputType="textPassword"
         android:hint="Contrasena"
-        android:inputType="textPassword"
         android:textColor="@color/white"
-        android:fontFamily="@font/chewy"/>
+        app:backgroundTint="@color/grisOscuro" />
+
     <EditText
-        android:layout_below="@id/etPassword"
         android:id="@+id/etSecondPassword"
+        android:layout_below="@id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Confirma contrasena"
         android:inputType="textPassword"
+        android:hint="Confirma contrasena"
         android:textColor="@color/white"
-        android:fontFamily="@font/chewy"/>
+        app:backgroundTint="@color/grisOscuro" />
+
     <Button
-        android:layout_below="@id/etSecondPassword"
         android:id="@+id/btnSign"
+        android:layout_below="@id/etSecondPassword"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:paddingHorizontal="10dp"
-        android:text="Registrarse"
-        />
+        android:text="Registrarse" />
+
 </RelativeLayout>
