@@ -101,6 +101,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SocialesFragment()).commit();
 
             }
+            else if (itemid == R.id.acerca){
+
+                Intent i = new Intent(HomeActivity.this, AboutActivity.class);
+                startActivity(i);
+
+            }
 
         drawerLayout.closeDrawer(GravityCompat.START);
 
