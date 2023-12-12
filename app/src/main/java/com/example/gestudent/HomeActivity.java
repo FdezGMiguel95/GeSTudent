@@ -100,10 +100,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SocialesFragment()).commit();
 
-            }
-            else if (itemid == R.id.acerca){
+            }else if (itemid == R.id.acerca){
 
                 Intent i = new Intent(HomeActivity.this, AboutActivity.class);
+                startActivity(i);
+
+            }else if (itemid == R.id.mapa){
+
+                Intent i = new Intent(HomeActivity.this, MapActivity.class);
                 startActivity(i);
 
             }
@@ -119,7 +123,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
-            super .onBackPressed();
+            super.onBackPressed();
         }
     }
 }

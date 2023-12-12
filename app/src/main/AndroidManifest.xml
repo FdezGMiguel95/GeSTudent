@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeSTudent"
         tools:targetApi="31">
-        <activity
-            android:name=".AboutActivity"
-            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -29,10 +26,25 @@
         </provider>
 
         <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".NuevoApunteActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RememberPassword"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -43,19 +55,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignInActivity"
-            android:exported="false"></activity>
-        <activity
-            android:name=".RememberPassword"
-            android:exported="false"></activity>
     </application>
 
 </manifest>
